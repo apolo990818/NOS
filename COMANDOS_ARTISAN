@@ -1,0 +1,142 @@
+
+
+# **Lista de comandos de Artisan**
+
+## **Comandos básicos**
+- **`php artisan list`**  
+  Muestra una lista de todos los comandos disponibles.  
+- **`php artisan help <comando>`**  
+  Muestra detalles sobre un comando específico.  
+- **`php artisan --version`**  
+  Muestra la versión de Laravel instalada.  
+
+---
+
+## **Comandos relacionados con la aplicación**
+- **`php artisan down`**  
+  Coloca la aplicación en modo de mantenimiento.  
+- **`php artisan up`**  
+  Restaura la aplicación al modo normal después de mantenimiento.  
+- **`php artisan serve`**  
+  Inicia un servidor de desarrollo (por defecto en `http://localhost:8000`).  
+- **`php artisan env`**  
+  Muestra el entorno actual (`APP_ENV`) de la aplicación.  
+
+---
+
+## **Comandos de migraciones y base de datos**
+- **`php artisan migrate`**  
+  Ejecuta las migraciones pendientes en la base de datos.  
+- **`php artisan migrate:rollback`**  
+  Revierte la última migración ejecutada.  
+- **`php artisan migrate:reset`**  
+  Revierte todas las migraciones.  
+- **`php artisan migrate:refresh`**  
+  Revierte y vuelve a ejecutar todas las migraciones.  
+- **`php artisan migrate:fresh`**  
+  Borra todas las tablas y ejecuta nuevamente todas las migraciones desde cero.  
+- **`php artisan db:seed`**  
+  Ejecuta los seeders configurados para poblar la base de datos con datos de prueba.  
+- **`php artisan make:migration`**  
+  Crea una nueva migración.  
+- **`php artisan make:seeder`**  
+  Crea un nuevo seeder.  
+
+---
+
+## **Comandos de modelos**
+- **`php artisan make:model NombreModelo`**  
+  Crea un nuevo modelo en la carpeta `app/Models`.  
+- **`php artisan make:model NombreModelo -m`**  
+  Crea un modelo con una migración asociada.  
+- **`php artisan make:model NombreModelo -mc`**  
+  Crea un modelo con migración y un controlador básico asociado.  
+
+---
+
+## **Comandos de controladores**
+- **`php artisan make:controller NombreController`**  
+  Crea un nuevo controlador.  
+- **`php artisan make:controller NombreController -r`**  
+  Crea un controlador **RESTful** con las acciones predeterminadas.  
+- **`php artisan make:controller NombreController --model=Modelo`**  
+  Crea un controlador enlazado a un modelo específico.  
+
+---
+
+## **Comandos de autenticación**
+- **`php artisan make:auth` (Laravel <= 6)**  
+  Genera el sistema de autenticación básico (vistas, rutas, controladores).  
+- **`php artisan ui:auth`**  
+  (Para Laravel UI) Genera autenticación básica.  
+
+---
+
+## **Comandos de caché**
+- **`php artisan config:cache`**  
+  Crea un archivo en caché de las configuraciones para mejorar el rendimiento.  
+- **`php artisan config:clear`**  
+  Limpia la caché de configuraciones.  
+- **`php artisan cache:clear`**  
+  Limpia todos los datos de la caché de la aplicación.  
+- **`php artisan route:cache`**  
+  Crea un archivo en caché de las rutas.  
+- **`php artisan route:clear`**  
+  Limpia la caché de rutas.  
+- **`php artisan view:cache`**  
+  Compila todas las vistas para almacenarlas en caché.  
+- **`php artisan view:clear`**  
+  Limpia la caché de vistas compiladas.  
+
+---
+
+## **Comandos de rutas**
+- **`php artisan route:list`**  
+  Muestra una lista de todas las rutas registradas.  
+- **`php artisan route:cache`**  
+  Genera un archivo de caché para las rutas registradas.  
+- **`php artisan route:clear`**  
+  Elimina el archivo de caché de rutas.  
+
+---
+
+## **Comandos de colas (Jobs)**
+- **`php artisan queue:work`**  
+  Procesa las tareas pendientes en la cola.  
+- **`php artisan queue:restart`**  
+  Reinicia todos los workers en ejecución.  
+- **`php artisan queue:retry all`**  
+  Reintenta todas las tareas fallidas.  
+- **`php artisan queue:failed`**  
+  Muestra una lista de tareas fallidas.  
+- **`php artisan queue:flush`**  
+  Elimina todas las tareas fallidas.  
+- **`php artisan make:job NombreJob`**  
+  Crea una nueva clase Job.  
+
+---
+
+## **Comandos de pruebas**
+- **`php artisan test`**  
+  Ejecuta todas las pruebas definidas en la aplicación.  
+- **`php artisan make:test`**  
+  Crea una nueva clase de prueba para pruebas unitarias o funcionales.  
+
+---
+
+## **Comandos de eventos y listeners**
+- **`php artisan make:event NombreEvento`**  
+  Crea un nuevo evento.  
+- **`php artisan make:listener NombreListener`**  
+  Crea un nuevo listener para un evento.  
+
+---
+
+## **Otros comandos útiles**
+- **`php artisan storage:link`**  
+  Crea un enlace simbólico desde `public/storage` a la carpeta `storage/app`.  
+- **`php artisan make:middleware Nombre`**  
+  Crea un nuevo middleware.  
+- **`php artisan make:policy Nombre`**  
+  Crea una nueva política para autorización.  
+
