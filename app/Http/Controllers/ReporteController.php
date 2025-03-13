@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\Reporte_nombre_precio;
-use App\Exports\SalientesExport;
+use App\Exports\ProductosResumenExport;
 use App\Exports\ConsolidadoExport;
 
 class ReporteController extends Controller
@@ -34,9 +34,9 @@ class ReporteController extends Controller
             $export = new Reporte_nombre_precio($fechaDesde, $fechaHasta);
             $fileName = 'reporte_entrantes.xlsx';
             break;
-        case 'salientes':
+        case 'ProductosResumenExport':
             // Supongamos que también quieres filtrar por fecha en este exportador:
-            $export = new SalientesExport($fechaDesde, $fechaHasta);
+            $export = new ProductosResumenExport($fechaDesde, $fechaHasta);
             $fileName = 'reporte_salientes.xlsx';
             break;
         case 'consolidado':

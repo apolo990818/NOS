@@ -10,7 +10,7 @@
             <select name="report_type" id="report_type" class="form-select">
                 <option value="">-- Selecciona --</option>
                 <option value="Reporte_nombre_precio">Reporte de Nombre Precio</option>
-                <option value="salientes">Reporte de Salientes</option>
+                <option value="ProductosResumenExport">Reporte de Resumen Total</option>
                 <option value="consolidado">Reporte Consolidado</option>
             </select>
         </div>
