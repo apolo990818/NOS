@@ -7,6 +7,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\Reporte_nombre_precio;
 use App\Exports\ProductosResumenExport;
 use App\Exports\ConsolidadoExport;
+use App\Exports\UsuarioExport;
 
 class ReporteController extends Controller
 {
@@ -32,18 +33,21 @@ class ReporteController extends Controller
         case 'Reporte_nombre_precio':
             // Instancia el exportador de Entrantes, pasando los filtros de fecha
             $export = new Reporte_nombre_precio($fechaDesde, $fechaHasta);
-            $fileName = 'reporte_entrantes.xlsx';
+            $fileName = 'reporte_nombre_precio.xlsx';
             break;
         case 'ProductosResumenExport':
-            // Supongamos que también quieres filtrar por fecha en este exportador:
+            
             $export = new ProductosResumenExport($fechaDesde, $fechaHasta);
-            $fileName = 'reporte_salientes.xlsx';
+            $fileName = 'reporte_resumen.xlsx';
             break;
         case 'consolidado':
-            // Si el consolidado no utiliza el filtro, simplemente:
-            $export = new ConsolidadoExport();
+            $export = new ConsolidadoExport($fechaDesde, $fechaHasta);
             $fileName = 'reporte_consolidado.xlsx';
             break;
+            case 'usuarios':
+                $export = new UsuarioExport($fechaDesde, $fechaHasta);
+                $fileName = 'reporte_usuarios.xlsx';
+                break;
         default:
             return redirect()->back()->withErrors(['report_type' => 'Selecciona un reporte válido.']);
     }

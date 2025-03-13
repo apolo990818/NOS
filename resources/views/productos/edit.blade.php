@@ -25,6 +25,7 @@
             <input type="number" name="stock" class="form-control" value="{{ $producto->stock }}" required>
         </div>
         <button type="submit" class="btn btn-success">Actualizar Producto</button>
+        <a href="{{ route('home') }}" class="btn btn-secondary">Inicio</a>
     </form>
 </div>
 @endsection

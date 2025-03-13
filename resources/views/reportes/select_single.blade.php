@@ -12,6 +12,7 @@
                 <option value="Reporte_nombre_precio">Reporte de Nombre Precio</option>
                 <option value="ProductosResumenExport">Reporte de Resumen Total</option>
                 <option value="consolidado">Reporte Consolidado</option>
+                <option value="usuarios">Reporte usuarios</option>
             </select>
         </div>
         <div class="mb-3">
@@ -24,6 +25,8 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Descargar Excel</button>
+        <a href="{{ route('home') }}" class="btn btn-secondary">Inicio</a>
     </form>
+    
 </div>
 @endsection

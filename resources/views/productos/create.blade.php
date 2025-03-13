@@ -23,8 +23,8 @@
             <input type="number" name="stock" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-success">Guardar Producto</button>
-        <a href="{{ route('productos.index') }}" class="btn btn-secondary">Ver Productos</a>
-        <a href="{{ route('productos.index') }}" class="btn btn-secondary">Reportes</a>
+        <a href="{{ route('productos.index') }}" class="btn btn-primary">Ver Productos</a>
+        <a href="{{ route('home') }}" class="btn btn-secondary">Inicio</a>
     </form>
 </div>
 @endsection

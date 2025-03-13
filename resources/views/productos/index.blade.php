@@ -5,6 +5,7 @@
     <h1>Lista de Productos</h1>
     
     <a href="{{ route('productos.create') }}" class="btn btn-primary">Crear Producto</a>
+    <a href="{{ route('home') }}" class="btn btn-secondary">Inicio</a>
 
     @if(session('success'))
         <div class="alert alert-success mt-2">{{ session('success') }}</div>
