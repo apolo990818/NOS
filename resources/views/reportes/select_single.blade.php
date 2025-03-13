@@ -25,7 +25,6 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Descargar Excel</button>
-        <a href="{{ route('home') }}" class="btn btn-secondary">Inicio</a>
     </form>
     
 </div>
