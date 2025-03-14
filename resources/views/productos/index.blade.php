@@ -15,6 +15,7 @@
                 <th>Descripción</th>
                 <th>Precio</th>
                 <th>Stock</th>
+                <th>Imagen</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -26,12 +27,19 @@
                 <td>{{ $producto->precio }}</td>
                 <td>{{ $producto->stock }}</td>
                 <td>
+                @if($producto->image)
+                            <img src="{{ asset('storage/' . $producto->image) }}" alt="{{ $producto->nombre }}" width="100">
+                        @else
+                            Sin imagen
+                        @endif
+
                     <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-warning">Editar</a>
                     <form action="{{ route('productos.destroy', $producto->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger" onclick="return confirm('¿Eliminar producto?')">Eliminar</button>
                     </form>
+                    
                 </td>
             </tr>
             @endforeach

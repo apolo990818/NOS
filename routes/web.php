@@ -6,6 +6,12 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\Auth\RegisterController;
+
+
+Route::get('register', [RegisterController::class, 'showRegistrationForm'])
+    ->name('auth.register');
+Route::post('register', [RegisterController::class, 'register']);
 
 Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes.reportes_vista');
 Route::get('/reportes/export', [ReporteController::class, 'exportExcel'])->name('reportes.export');

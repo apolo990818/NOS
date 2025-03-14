@@ -20,14 +20,22 @@ class ProductoController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'nombre' => 'required|string|max:255',
+        // Valida los campos, incluyendo el de la imagen
+        $validated = $request->validate([
+            'nombre'      => 'required|string|max:255',
             'descripcion' => 'nullable|string',
-            'precio' => 'required|numeric|min:0',
-            'stock' => 'required|integer|min:0',
+            'precio'      => 'required|numeric|min:0',
+            'stock'       => 'required|integer|min:0',
+            'image'       => 'nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
         ]);
 
-        Producto::create($request->all());
+        // Si se subió una imagen, la almacena en storage/app/public/images
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+            $validated['image'] = $imagePath;
+        }
+
+        Producto::create($validated);
 
         return redirect()->route('productos.index')->with('success', 'Producto creado exitosamente.');
     }
@@ -47,7 +55,29 @@ class ProductoController extends Controller
     public function update(Request $request, $id)
     {
         $producto = Producto::findOrFail($id);
-        $producto->update($request->all());
+
+        $validated = $request->validate([
+            'nombre'      => 'required|string|max:255',
+            'descripcion' => 'nullable|string',
+            'precio'      => 'required|numeric|min:0',
+            'stock'       => 'required|integer|min:0',
+            'image'       => 'nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
+        ]);
+
+        
+        if ($request->hasFile('image')) {
+            if ($request->hasFile('image')) {
+                $file = $request->file('image');
+                //dd($file->getClientOriginalName(), $file->getClientMimeType(), $file->getSize());
+                $imagePath = $file->store('images', 'public');
+                $validated['image'] = $imagePath;
+            }
+            
+            $imagePath = $request->file('image')->store('images', 'public');
+            $validated['image'] = $imagePath;
+        }
+
+        $producto->update($validated);
 
         return redirect()->route('productos.index')->with('success', 'Producto actualizado.');
     }
@@ -58,4 +88,3 @@ class ProductoController extends Controller
         return redirect()->route('productos.index')->with('success', 'Producto eliminado.');
     }
 }
-

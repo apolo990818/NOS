@@ -78,9 +78,11 @@
             </div>
             <div class="offcanvas-body">
                 <ul class="list-group">
+                    <li class="list-group-item"><a href="{{ route('home') }}">Inicio</a></li>
                     <li class="list-group-item"><a href="{{ route('productos.create') }}">Crear Producto</a></li>
                     <li class="list-group-item"><a href="{{ route('productos.index') }}">Ver Productos</a></li>
                     <li class="list-group-item"><a href="{{ route('reportes.selectSingle') }}">Ver Reportes</a></li>
+            
                 </ul>
             </div>
         </div>
