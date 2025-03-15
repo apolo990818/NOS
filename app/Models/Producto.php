@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Producto extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'productos'; // Nombre de la tabla en la BD
 
@@ -18,8 +19,11 @@ class Producto extends Model
         'precio',
         'stock',
         'image',
-        'usuario_id' // Agregado para permitir asignación masiva
+        'usuario_id',
+        'deleted_at' // Asegurar que se pueda asignar masivamente
     ];
+
+    protected $dates = ['deleted_at']; // Para manejar el campo de eliminación lógica
 
     /**
      * Relación con el usuario que creó el producto.
