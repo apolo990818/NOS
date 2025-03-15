@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductoController extends Controller
 {
@@ -35,6 +36,9 @@ class ProductoController extends Controller
             $validated['image'] = $imagePath;
         }
 
+        // Asigna el usuario_id del usuario autenticado
+        $validated['usuario_id'] = Auth::id();
+
         Producto::create($validated);
 
         return redirect()->route('productos.index')->with('success', 'Producto creado exitosamente.');
@@ -64,16 +68,10 @@ class ProductoController extends Controller
             'image'       => 'nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
         ]);
 
-        
+        // Si se sube una nueva imagen, la almacena
         if ($request->hasFile('image')) {
-            if ($request->hasFile('image')) {
-                $file = $request->file('image');
-                //dd($file->getClientOriginalName(), $file->getClientMimeType(), $file->getSize());
-                $imagePath = $file->store('images', 'public');
-                $validated['image'] = $imagePath;
-            }
-            
-            $imagePath = $request->file('image')->store('images', 'public');
+            $file = $request->file('image');
+            $imagePath = $file->store('images', 'public');
             $validated['image'] = $imagePath;
         }
 
