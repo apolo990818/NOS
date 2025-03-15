@@ -47,7 +47,8 @@ class ConsolidadoExport implements FromCollection, WithHeadings, ShouldAutoSize
             'Nombre',
             'Descripción',
             'Precio',
-            'Stock'
+            'Stock',
+            'Fecha de creacion'
         ];
     }
 }

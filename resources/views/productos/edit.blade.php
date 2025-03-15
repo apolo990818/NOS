@@ -24,6 +24,12 @@
             <label for="stock" class="form-label">Stock:</label>
             <input type="number" name="stock" class="form-control" value="{{ $producto->stock }}" required>
         </div>
+        <!--
+        <div class="mb-3">
+            <label for="image" class="form-label">Imagen del producto:</label>
+            <input type="file" name="image" id="image" class="form-control">
+        </div>
+        -->
         <button type="submit" class="btn btn-success">Actualizar Producto</button>
     </form>
 </div>

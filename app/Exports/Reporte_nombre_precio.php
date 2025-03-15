@@ -28,7 +28,7 @@ class Reporte_nombre_precio implements FromCollection, WithHeadings, ShouldAutoS
     public function collection()
     {
     
-        $query = Producto::select('nombre', 'descripcion', 'precio', 'stock', 'created_at');
+        $query = Producto::select('nombre', 'precio','created_at');
 
         if ($this->fechaDesde && $this->fechaHasta) {
             $query->whereBetween('created_at', [$this->fechaDesde, $this->fechaHasta]);
@@ -46,9 +46,7 @@ class Reporte_nombre_precio implements FromCollection, WithHeadings, ShouldAutoS
     {
         return [
             'Nombre',
-            'Descripción',
             'Precio',
-            'Stock',
             'fecha_de_creacion'
         ];
     }

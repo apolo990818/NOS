@@ -13,6 +13,7 @@
                 <option value="ProductosResumenExport">Reporte de Resumen Total</option>
                 <option value="consolidado">Reporte Consolidado</option>
                 <option value="usuarios">Reporte usuarios</option>
+                <option value="ProductosEliminados">Reporte Productos Eliminados</option>
             </select>
         </div>
         <div class="mb-3">

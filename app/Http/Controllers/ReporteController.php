@@ -8,6 +8,7 @@ use App\Exports\Reporte_nombre_precio;
 use App\Exports\ProductosResumenExport;
 use App\Exports\ConsolidadoExport;
 use App\Exports\UsuarioExport;
+use App\Exports\ProductosEliminados;
 
 class ReporteController extends Controller
 {
@@ -44,10 +45,15 @@ class ReporteController extends Controller
             $export = new ConsolidadoExport($fechaDesde, $fechaHasta);
             $fileName = 'reporte_consolidado.xlsx';
             break;
-            case 'usuarios':
+        case 'usuarios':
                 $export = new UsuarioExport($fechaDesde, $fechaHasta);
                 $fileName = 'reporte_usuarios.xlsx';
                 break;
+
+        case 'ProductosEliminados':
+                    $export = new ProductosEliminados($fechaDesde, $fechaHasta);
+                    $fileName = 'reporte_eliminados.xlsx';
+                    break;
         default:
             return redirect()->back()->withErrors(['report_type' => 'Selecciona un reporte válido.']);
     }
