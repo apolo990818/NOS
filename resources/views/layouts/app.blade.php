@@ -69,6 +69,7 @@
                 </div>
             </div>
         </nav>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
         <!-- Offcanvas Sidebar (Menú toggle que se abre desde la izquierda) -->
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
@@ -82,6 +83,8 @@
                     <li class="list-group-item"><a href="{{ route('productos.create') }}">Crear Producto</a></li>
                     <li class="list-group-item"><a href="{{ route('productos.index') }}">Ver Productos</a></li>
                     <li class="list-group-item"><a href="{{ route('reportes.selectSingle') }}">Ver Reportes</a></li>
+                    <li class="list-group-item"><a href="{{ route('admin.chat.index') }}">Chat</a></li>
+
             
                 </ul>
             </div>
